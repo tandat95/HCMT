@@ -14,7 +14,12 @@
 
 }
 
-
+@if (ViewBag._GetInitData != null)
+{
+    <script type="text/javascript">
+                @Html.Raw(ViewBag._GetInitData)
+    </script>
+}
 @section Scripts{
     @Url.CombresLink("TEMPHome_Script")
 }

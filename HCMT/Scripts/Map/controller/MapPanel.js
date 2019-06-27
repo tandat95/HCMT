@@ -27,6 +27,25 @@
                 'subdomains': ['a', 'b', 'c', 'd', 'e']
             })
         });
+      
+        var hcmBound = HCMT.Global.HCM_BOUND.Coors;
+        panel.map.hcmPolygon = new maptalks.Polygon(hcmBound, {
+            visible: true,
+            editable: true,
+            cursor: 'pointer',
+            shadowBlur: 0,
+            shadowColor: 'black',
+            draggable: false,
+            dragShadow: false, // display a shadow during dragging
+            drawOnAxis: null,  // force dragging stick on a axis, can be: x, y
+            symbol: {
+                'lineColor': '#34495e',
+                'lineWidth': 2,
+                'polygonFill': 'rgb(135,196,240)',
+                'polygonOpacity': 0
+            }
+        });
+        new maptalks.VectorLayer('vector',panel.map.hcmPolygon).addTo(panel.map);
     }
         
 });

@@ -23,6 +23,17 @@ namespace HCMT.Library.Ajax
         }
 
         [AjaxMethod]
+        public HcmShape GetHCMBound()
+        {
+            return MongoProvider.GetHCMBound();
+        }
+        [AjaxMethod]
+        public List<HcmShape> GetAllDistrictPoint()
+        {
+            return MongoProvider.GetAllDistrictPoint();
+        }
+
+        [AjaxMethod]
         public List<HcmTemp> GetTempData(DateTime startTime, DateTime endTime)
         {
             return MongoProvider.GetTempData(startTime, endTime);

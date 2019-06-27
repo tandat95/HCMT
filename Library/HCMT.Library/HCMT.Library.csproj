@@ -69,6 +69,7 @@
     <Compile Include="Provider\MongoProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dll\AjaxMin.dll" />
     <Content Include="Dll\AjaxPro.2.dll" />
     <Content Include="Dll\MongoDB.Bson.dll" />
     <Content Include="Dll\MongoDB.Driver.Core.dll" />

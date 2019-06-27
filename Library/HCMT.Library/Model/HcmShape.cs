@@ -11,6 +11,6 @@ namespace HCMT.Library.Model
         public string Level { get; set; }
         public List<List<double>> Coors { get; set; }
         public string Type { get; set; }
-        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

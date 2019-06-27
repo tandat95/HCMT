@@ -45,9 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
-      <HintPath>..\packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
-    </Reference>
     <Reference Include="Combres, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\combres.2.3.0.4\lib\net40\Combres.dll</HintPath>
     </Reference>
@@ -164,13 +161,8 @@
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Icon\search.png" />
     <Content Include="Content\Map\map.css" />
-    <Content Include="Dll\combres.2.3.0.4\content\App_Data\combres.xml" />
-    <Content Include="Dll\combres.2.3.0.4\content\App_Data\combres_full_with_annotation.xml" />
-    <Content Include="Dll\combres.2.3.0.4\content\App_Data\combres_minimal.xml" />
-    <Content Include="Dll\combres.2.3.0.4\lib\net35\Combres.dll" />
-    <Content Include="Dll\combres.2.3.0.4\lib\net35\Combres.XML" />
-    <Content Include="Dll\combres.2.3.0.4\lib\net40\Combres.dll" />
-    <Content Include="Dll\combres.2.3.0.4\lib\net40\Combres.XML" />
+    <Content Include="Dll\AjaxMin.dll" />
+    <Content Include="Dll\AjaxPro.2.dll" />
     <Content Include="Dll\Combres.Mvc.dll" />
     <Content Include="Dll\MongoDB.Driver.Legacy.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
@@ -934,11 +926,7 @@
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\resources\theme-neutral\Readme.md" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp-all-debug.scss" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp-all-rtl-debug.scss" />
-    <Content Include="Dll\combres.2.3.0.4\.signature.p7s" />
-    <Content Include="Dll\combres.2.3.0.4\combres.2.3.0.4.nupkg" />
-    <Content Include="Dll\combres.2.3.0.4\content\App_Start\Combres.cs.pp" />
-    <Content Include="Dll\combres.2.3.0.4\content\combres.readme" />
-    <Content Include="Dll\combres.2.3.0.4\content\web.config.transform" />
+    <Content Include="Config\db.config" />
     <None Include="Properties\PublishProfiles\hcmtemp - Web Deploy.pubxml" />
     <None Include="Scripts\Common\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.js" />
