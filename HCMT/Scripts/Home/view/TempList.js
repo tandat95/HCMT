@@ -58,13 +58,13 @@
                         });
                     },
                     select: function (grid, record, index, eOpts) {
-                        var map = grid.view.up('viewport').down('mappanel').map;
+                        var viewport = grid.view.up('viewport');
+                        var map = viewport.down('mappanel').map;
                         var values = record.get('Value');
                         var districtNames = record.get('DistrictNames');
                         var colors = HCMT.Global.COLOR_RANGE;
                         var districtPoints = HCMT.Global.DISTRICT_POINT;
                         if (values && Ext.isArray(values) && districtPoints && Ext.isArray(districtPoints) && districtNames && Ext.isArray(districtNames)) {
-
                             var samples = [];
                             for (let i = 0; i < values.length; i++) {
                                 var coors = districtPoints.filter((x) => { return x.Name === districtNames[i]; })[0];
@@ -75,12 +75,14 @@
                             if (map.krigingLayer) {
                                 map.removeLayer(map.krigingLayer);
                             }
+                            map.gridKriging = null; //null: to load new grid for Kriging,
+
                             map.krigingLayer = new maptalks.KrigingLayer('kriging', samples, {
                                 colors: colors,
                                 regions: map.hcmPolygon,
                                 width: 0.008,
-                                opacity: 0.5
-
+                                opacity: 0.5,
+                                alpha: 100
                             }).addTo(map);
                             //if (!map.vLayer) {
                             //    map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
@@ -100,7 +102,17 @@
                 }
             }
         ];
-
+        me.dockedItems =[
+            {
+                xtype: 'pagingtoolbar',
+                inputItemWidth: 50,
+                beforePageText: 'Trang',
+                dock: 'bottom',
+                itemId: 'vehiclePickerPaging',
+                displayInfo: false,
+                overflowHandler: 'menu'
+            }
+        ]
         this.callParent();
     }
 });

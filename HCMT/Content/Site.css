@@ -22,3 +22,26 @@ select,
 textarea {
     max-width: 280px;
 }
+/* Custom Scroll for Chrome Only - Let's get this party started */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(150, 152, 153) !important;
+    -webkit-box-shadow: inset 1px 1px 2px #9b9b9b;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(155, 155, 155, 0.4);
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        -webkit-box-shadow: inset 1px 1px 10px #000000;
+        -webkit-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.3);
+    }
+
+/* Custom Scroll for Chrome Only */

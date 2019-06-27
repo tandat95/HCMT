@@ -40,7 +40,7 @@
 
     <resourceSet name="TEMPMap_Script" type="js" debugEnabled="true">
       <resource path="~/libs/maptalk/js/maptalks.js" />
-      <resource path="~/libs/maptalk/js/maptalks.kriginglayer.min.js" />
+      <resource path="~/libs/maptalk/js/maptalks.kriginglayer.js" />
       <resource path="~/scripts/global.js" />
       <resource path="~/scripts/map/view/MapPanel.js" />
       <resource path="~/scripts/map/controller/MapPanel.js" />
