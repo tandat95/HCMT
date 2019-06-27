@@ -12,6 +12,7 @@
         me.items = [
             {
                 xtype: 'grid',
+                itemId: 'tempGrid',
                 layout: 'fit',
                 scrollable: true,
                 store: {
@@ -19,11 +20,32 @@
                 },
                 columns: [
                     {
+                        text: 'STT',
+                        xtype: 'rownumberer',
+                        width: 60
+                    },
+                    {
                         text: 'Thời gian',
                         dataIndex: 'Time',
                         flex: 1,
                         renderer: function (value) {
                             return Ext.Date.format(value, 'd/m/Y');
+                        }
+                    },
+                    {
+                        text: 'Min',
+                        dataIndex: 'Value',
+                        flex: 1,
+                        renderer: function (value) {
+                            return value.min();
+                        }
+                    },
+                    {
+                        text: 'Max',
+                        dataIndex: 'Value',
+                        flex: 1,
+                        renderer: function (value) {
+                            return value.max();
                         }
                     }
                 ],
@@ -48,7 +70,7 @@
                                 var coors = districtPoints.filter((x) => { return x.Name === districtNames[i]; })[0];
                                 if (!coors || !coors.Coors || !coors.Coors[0]) { continue; }
                                 coors = coors.Coors[0];
-                                samples.push(coors.concat(parseFloat(values[i])));
+                                samples.push(coors.concat(values[i]));
                             }
                             if (map.krigingLayer) {
                                 map.removeLayer(map.krigingLayer);
@@ -60,17 +82,17 @@
                                 opacity: 0.5
 
                             }).addTo(map);
-                            if (!map.vLayer) {
-                                map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
-                                samples.forEach(function (m) {
-                                    var circle = new maptalks.Circle([m[0], m[1]], 12, {
-                                        symbol: {
-                                            lineColor: '#f00',
-                                            fillColor: '#f00'
-                                        }
-                                    }).addTo(map.vLayer);
-                                });
-                            }                     
+                            //if (!map.vLayer) {
+                            //    map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
+                            //    samples.forEach(function (m) {
+                            //        var circle = new maptalks.Circle([m[0], m[1]], 12, {
+                            //            symbol: {
+                            //                lineColor: '#f00',
+                            //                fillColor: '#f00'
+                            //            }
+                            //        }).addTo(map.vLayer);
+                            //    });
+                            //}                     
                         }
 
                         

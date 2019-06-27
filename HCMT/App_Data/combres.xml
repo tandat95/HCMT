@@ -65,7 +65,9 @@
     <resourceSet name="TEMPHome_Script" type="js" debugEnabled="true">
       <resource reference="TEMPMap_Script" />
       <resource path="~/scripts/home/view/TempList.js" />
+      <resource path="~/scripts/home/controller/TempList.js" />
       <resource path="~/scripts/home/view/Viewport.js" />
+      <resource path="~/scripts/home/controller/Viewport.js" />
       <resource path="~/scripts/home/home.js" />
     </resourceSet>
     <!--TEMP HOM-->

@@ -944,6 +944,8 @@
     <Content Include="Scripts\Common\pace.min.js" />
     <Content Include="Scripts\Common\rainbowvis-2015-05-24.min.js" />
     <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\Home\controller\TempList.js" />
+    <Content Include="Scripts\Home\controller\Viewport.js" />
     <Content Include="Scripts\Home\home.js" />
     <Content Include="Scripts\Home\view\TempList.js" />
     <Content Include="Scripts\Home\view\Viewport.js" />

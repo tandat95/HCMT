@@ -21,12 +21,6 @@ namespace HCMT.Library.Provider
         public static MongoClient client = new MongoClient("mongodb://tdat:Tandat131754@cluster0-shard-00-00-ouaxz.mongodb.net:27017,cluster0-shard-00-01-ouaxz.mongodb.net:27017,cluster0-shard-00-02-ouaxz.mongodb.net:27017/HCMT?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority");
         public static MongoDatabase db = client.GetServer().GetDatabase("HCMT");
 
-
-        //public static MongoClient client = new MongoClient("mongodb+srv://tdat:Tandat131754@cluster0-ouaxz.mongodb.net/admin?retryWrites=true&w=majority");
-        //public static MongoDatabase db = client.GetServer().GetDatabase("admin");
-
-        //public static MongoClient client = new MongoClient("mongodb://localhost");
-        //public static MongoDatabase db = new MongoClient("mongodb+srv://tdat:Tandat131754@cluster0-ouaxz.mongodb.net/admin?retryWrites=true&w=majority").GetServer().GetDatabase("admin");
         public static void InsertData()
         {
             var temp = db.GetCollection<HcmShape>("hcm_shape");
@@ -296,11 +290,17 @@ namespace HCMT.Library.Provider
                             continue;
                         }
                         string[] fields = parser.ReadFields();
+                        var values = fields.Skip(1).ToArray();
+                        var newValues = new List<double>();
+                        for(int i = 0; i< values.Length; i++)
+                        {
+                            newValues.Add(double.Parse(values[i]));
+                        }
                         listTemp.Add(new HcmTemp
                         {
                             DistrictNames = districtNames,
                             Time = DateTime.Parse(fields[0]),
-                            Value = fields.Skip(1).ToArray()
+                            Value = newValues.ToArray()
                         });
                         var dateTime = DateTime.Parse(fields[0]);
                     }
