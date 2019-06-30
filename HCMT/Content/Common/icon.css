@@ -2,3 +2,9 @@
 .btn-search-small {
     background-image: url('../Icon/search.png');
 }
+.icon-btn-play {
+    background-image: url('../Icon/icons8-play-32.png');
+}
+.icon-btn-pause {
+    background-image: url('../Icon/icons8-pause-32.png');
+}

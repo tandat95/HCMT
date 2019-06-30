@@ -159,6 +159,8 @@
     <Content Include="Content\Common\icon.css" />
     <Content Include="Content\Common\ol.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Icon\icons8-pause-32.png" />
+    <Content Include="Content\Icon\icons8-play-32.png" />
     <Content Include="Content\Icon\search.png" />
     <Content Include="Content\Map\map.css" />
     <Content Include="Dll\AjaxMin.dll" />
@@ -908,6 +910,7 @@
     <Content Include="libs\maptalk\css\maptalks.css" />
     <Content Include="libs\maptalk\css\maptalks.min.css" />
     <Content Include="libs\maptalk\js\maptalks.js" />
+    <Content Include="libs\maptalk\js\maptalks.kriginglayer.js" />
     <Content Include="libs\maptalk\js\maptalks.kriginglayer.min.js" />
     <Content Include="libs\maptalk\js\maptalks.min.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.min.map" />
@@ -927,7 +930,6 @@
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp-all-debug.scss" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp-all-rtl-debug.scss" />
     <Content Include="Config\db.config" />
-    <Content Include="libs\maptalk\js\maptalks.kriginglayer" />
     <None Include="Properties\PublishProfiles\hcmtemp - Web Deploy.pubxml" />
     <None Include="Scripts\Common\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.js" />

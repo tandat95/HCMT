@@ -18,6 +18,67 @@
                 store: {
                     fields: ["Time", "Value"]
                 },
+                tbar: [
+                    {
+                        fieldLabel: 'Tốc độ',
+                        labelWidth: 60,
+                        xtype: 'combobox',
+                        itemId: 'cbxTimeout',
+                        value: 1000,
+                        valueField: 'value',
+                        displayField: 'name',
+                        store: {
+                            fields: ["name", "value"],
+                            data: [
+                                {
+                                    name: "Chậm",
+                                    value: 1500
+                                },
+                                {
+                                    name: "Trung bình",
+                                    value: 1000
+                                },
+                                {
+                                    name: "Nhanh",
+                                    value: 500
+                                }
+                            ]
+                        }
+                    }, '->',
+                    {
+                        xtype: 'button',
+                        iconCls: 'icon-btn-play',
+                        text: "Chạy",
+                        status: 'STOP', //PLAY
+                        handler: function (btn) {
+                            if (btn.status === 'STOP') {
+                                let timeout = btn.up('panel').down('#cbxTimeout').getValue();
+                                var grid = btn.up('viewport').down('#tempGrid');
+                                btn.setIconCls('icon-btn-pause');
+                                btn.setText('Dừng');
+                                btn.status = 'PLAY'
+                                let i = 0;
+                                btn.playAction = setInterval(function () {
+                                    grid.setSelection(i);
+                                    grid.view.scrollRowIntoView(i);
+                                    i++;
+                                    if (i >= grid.getStore().getRange().length) {
+                                        if (btn.playAction) window.clearInterval(btn.playAction);
+                                        btn.setIconCls('icon-btn-play');
+                                        btn.setText('Chạy');
+                                        btn.status = 'STOP';
+                                        
+                                    }
+                                }, timeout)
+                            } else {
+                                if (btn.playAction) window.clearInterval(btn.playAction);
+                                btn.setIconCls('icon-btn-play');
+                                btn.setText('Chạy');
+                                btn.status = 'STOP';
+                            }
+                        }
+                    }
+                ],
                 columns: [
                     {
                         text: 'STT',
@@ -48,61 +109,10 @@
                             return value.max();
                         }
                     }
-                ],
-                listeners: {
-                    afterrender: function (grid) {
-                        HCMT.Library.Ajax.TempAjax.GetTempData(new Date("3/1/2018"), new Date("4/30/2018"), function (res) {
-                            if (res && res.value) {
-                                grid.getStore().setData(res.value);
-                            }
-                        });
-                    },
-                    select: function (grid, record, index, eOpts) {
-                        var viewport = grid.view.up('viewport');
-                        var map = viewport.down('mappanel').map;
-                        var values = record.get('Value');
-                        var districtNames = record.get('DistrictNames');
-                        var colors = HCMT.Global.COLOR_RANGE;
-                        var districtPoints = HCMT.Global.DISTRICT_POINT;
-                        if (values && Ext.isArray(values) && districtPoints && Ext.isArray(districtPoints) && districtNames && Ext.isArray(districtNames)) {
-                            var samples = [];
-                            for (let i = 0; i < values.length; i++) {
-                                var coors = districtPoints.filter((x) => { return x.Name === districtNames[i]; })[0];
-                                if (!coors || !coors.Coors || !coors.Coors[0]) { continue; }
-                                coors = coors.Coors[0];
-                                samples.push(coors.concat(values[i]));
-                            }
-                            if (map.krigingLayer) {
-                                map.removeLayer(map.krigingLayer);
-                            }
-                            map.gridKriging = null; //null: to load new grid for Kriging,
-
-                            map.krigingLayer = new maptalks.KrigingLayer('kriging', samples, {
-                                colors: colors,
-                                regions: map.hcmPolygon,
-                                width: 0.008,
-                                opacity: 0.5,
-                                alpha: 100
-                            }).addTo(map);
-                            //if (!map.vLayer) {
-                            //    map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
-                            //    samples.forEach(function (m) {
-                            //        var circle = new maptalks.Circle([m[0], m[1]], 12, {
-                            //            symbol: {
-                            //                lineColor: '#f00',
-                            //                fillColor: '#f00'
-                            //            }
-                            //        }).addTo(map.vLayer);
-                            //    });
-                            //}                     
-                        }
-
-                        
-                    }
-                }
+                ]
             }
         ];
-        me.dockedItems =[
+        me.dockedItems = [
             {
                 xtype: 'pagingtoolbar',
                 inputItemWidth: 50,
