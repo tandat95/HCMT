@@ -36,6 +36,7 @@
     <resourceSet name="TEMPMap_Style" type="css" debugEnabled="true">
       <resource path="~/content/bootstrap.min.css" />
       <resource path="~/libs/maptalk/css/maptalks.css" />
+      <resource path="~/content/map/map.css" />
     </resourceSet>
 
     <resourceSet name="TEMPMap_Script" type="js" debugEnabled="true">

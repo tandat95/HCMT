@@ -57,18 +57,20 @@
                     itemdblclick: function (grid, record, item, index, e, eOpts) {
                         var me = this;
                         Ext.create('Ext.window.Window', {
-                            width: 400,
+                            width: 500,
                             height: 400,
                             title: Ext.Date.format(record.get('Time'), 'd/m/Y'),
                             items: [
                                 {
                                     xtype: 'tabpanel',
+                                    height: 350,
                                     layout: 'fit',
                                     items: [
                                         {
                                             xtype: 'grid',
                                             layout: 'fit',
                                             title: 'Giá trị',
+                                            autoScroll: true,
                                             scrollable: true,
                                             store: {
                                                 fields: ["DistrictName", "Value"],
@@ -83,6 +85,9 @@
                                                 {
                                                     text: 'Nhiệt độ',
                                                     dataIndex: 'Value',
+                                                    renderer: function (value) {
+                                                        return value.toFixed(2);
+                                                    },
                                                     flex: 1
                                                 }
                                             ]

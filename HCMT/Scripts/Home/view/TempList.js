@@ -98,7 +98,7 @@
                         dataIndex: 'Value',
                         flex: 1,
                         renderer: function (value) {
-                            return value.min();
+                            return value.min().toFixed(2);
                         }
                     },
                     {
@@ -106,7 +106,7 @@
                         dataIndex: 'Value',
                         flex: 1,
                         renderer: function (value) {
-                            return value.max();
+                            return value.max().toFixed(2);
                         }
                     }
                 ]
