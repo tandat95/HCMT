@@ -15,6 +15,7 @@
     onMapRender: function (panel) {
         var me = this;
         me.initMap(panel);
+        me.createLabel();
     },
     initMap: function (panel) {
         panel.map = new maptalks.Map('mapContainer', {
@@ -46,6 +47,21 @@
             }
         });
         new maptalks.VectorLayer('vector',panel.map.hcmPolygon).addTo(panel.map);
+    },
+    createLabel: function () {
+        var label = document.getElementById('temp-label');
+        if (label) {
+            var child = document.createElement('DIV');
+            var colors = HCMT.Global.COLOR_RANGE;
+            var labelHeight = $("#temp-label").height();
+            var childHeight = labelHeight / colors.length + 'px';
+            child.style.height = childHeight;
+            child.style.width = '100%';
+            for (let i = 0; i < colors.length; i++) {
+                var cloneEl = Ext.clone(child);
+                cloneEl.style.background = colors[i];
+                label.appendChild(cloneEl);
+            }
+        }
     }
-        
 });

@@ -14,15 +14,14 @@
                 defaultDebugEnabled="true"
                 defaultIgnorePipelineWhenDebug="true"
                 localChangeMonitorInterval="30"
-                remoteChangeMonitorInterval="60"
-                >
+                remoteChangeMonitorInterval="60">
     <resourceSet name="siteCss" type="css" debugEnabled="true">
       <resource path="~/content/bootstrap.css" />
       <resource path="~/content/Site.css" />
       <resource path="~/content/common/icon.css" />
     </resourceSet>
     <resourceSet name="siteJs" type="js">
-
+      <resource path="~/scripts/common/jquery-3.3.1.min.js" />
     </resourceSet>
 
     <resourceSet name="extjs6_CSS" type="css"  debugEnabled="true">
@@ -65,6 +64,11 @@
 
     <resourceSet name="TEMPHome_Script" type="js" debugEnabled="true">
       <resource reference="TEMPMap_Script" />
+      
+      <resource path="~/libs/Highcharts-7.1.2/code/highcharts.js" />
+      <resource path="~/libs/Highcharts-7.1.2/code/modules/exporting.js" />
+      <resource path="~/libs/Highcharts-7.1.2/code/modules/export-data.js" />
+      
       <resource path="~/scripts/home/view/TempList.js" />
       <resource path="~/scripts/home/controller/TempList.js" />
       <resource path="~/scripts/home/view/Viewport.js" />

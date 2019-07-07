@@ -41,7 +41,14 @@
                                 opacity: 0.5,
                                 alpha: 100
                             }).addTo(map);
-                            //if (!map.vLayer) {
+
+                            var txtLabelMin = document.getElementById('divMin');
+                            var txtLabelMax = document.getElementById('divMax');
+
+                            txtLabelMin.innerText = record.get('Value').min().toFixed(2);
+                            txtLabelMax.innerText = record.get('Value').max().toFixed(2);
+
+
                             //    map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
                             //    samples.forEach(function (m) {
                             //        var circle = new maptalks.Circle([m[0], m[1]], 12, {
@@ -57,18 +64,83 @@
                     itemdblclick: function (grid, record, item, index, e, eOpts) {
                         var me = this;
                         Ext.create('Ext.window.Window', {
-                            width: 500,
-                            height: 400,
+                            width: 600,
+                            height: 450,
                             title: Ext.Date.format(record.get('Time'), 'd/m/Y'),
                             items: [
                                 {
                                     xtype: 'tabpanel',
-                                    height: 350,
                                     layout: 'fit',
                                     items: [
                                         {
+                                            title: "Biểu đồ",
+                                            itemId: 'chartPanel',
+                                            layout: 'fit',
+                                            scrollable: true,
+                                            listeners: {
+                                                afterrender: function (panel) {
+                                                    var data = [];
+                                                    var names = record.get('DistrictNames');
+                                                    var values = record.get('Value');
+                                                    for (let i = 0; i < values.length; i++) {
+                                                        data.push([names[i], values[i]]);
+                                                    }
+
+                                                    panel.chart = Highcharts.chart(panel.getId() + '-body', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Nhiệt độ TP.HCM ngày ' + Ext.Date.format(record.get('Time'), 'd/m/Y')
+                                                        },
+
+                                                        xAxis: {
+                                                            type: 'category',
+                                                            labels: {
+                                                                rotation: -45,
+                                                                style: {
+                                                                    fontSize: '12px',
+                                                                    fontFamily: 'Verdana, sans-serif'
+                                                                }
+                                                            }
+                                                        },
+                                                        yAxis: {
+                                                            min: 15,
+                                                            title: {
+                                                                text: 'Nhiệt độ (°C)'
+                                                            }
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        tooltip: {
+                                                            pointFormat: 'Nhiệt độ: <b>{point.y:.1f} °C</b>'
+                                                        },
+                                                        series: [{
+                                                            name: Ext.Date.format(record.get('Time'), 'd/m/Y'),
+                                                            data: data,
+                                                            dataLabels: {
+                                                                enabled: true,
+                                                                rotation: -90,
+                                                                color: '#FFFFFF',
+                                                                align: 'right',
+                                                                format: '{point.y:.1f}', // one decimal
+                                                                y: 10, // 10 pixels down from the top
+                                                                style: {
+                                                                    fontSize: '12px',
+                                                                    fontFamily: 'Verdana, sans-serif'
+                                                                }
+                                                            }
+                                                        }]
+                                                    });
+                                                },
+                                                resize: me.onPanelResize
+                                            }
+                                        },
+                                        {
                                             xtype: 'grid',
                                             layout: 'fit',
+                                            height: 400,
                                             title: 'Giá trị',
                                             autoScroll: true,
                                             scrollable: true,
@@ -91,13 +163,13 @@
                                                     flex: 1
                                                 }
                                             ]
-                                        },
-                                        {
-                                            title: "Biểu đồ"
                                         }
+                                     
                                     ]
                                 }
-                            ]
+                            ],
+                           
+
                         }).show();
                     },
                     reloaddata: this.reloadData
@@ -126,5 +198,10 @@
             grid.getEl().unmask();
         });
 
+    },
+    onPanelResize: function (panel, newWidth, newHeight, c, d) {
+        if (panel.chart) {
+            panel.chart.reflow();
+        }
     }
 });
