@@ -8,6 +8,10 @@
 
         me.items = [
             {
+                xtype: 'common-navigation',
+                layout:'fit'
+            },
+            {
                 region: 'center',
                 itemId: 'centerPanel',
                 layout: 'fit',

@@ -697,6 +697,7 @@ KrigingLayer.registerRenderer('canvas', function (_maptalks$renderer$Ca) {
         var model = this.layer.options['model'];
         var sigma2 = this.layer.options['sigma2'];
         var alpha = this.layer.options['alpha'];
+        var zlim = this.layer.options['zlim'];
         var _polygons = this._handRegions(regions);
         var extent = map.getExtent();
         var data = this.layer.getData();
@@ -711,6 +712,7 @@ KrigingLayer.registerRenderer('canvas', function (_maptalks$renderer$Ca) {
         });
         var variogram = K.kriging.train(values, lngs, lats, model, sigma2, alpha);
         if (!map.gridKriging) map.gridKriging = K.kriging.grid(_polygons, variogram, width);
+        if (zlim) map.gridKriging.zlim = zlim;
         K.kriging.plot(this.canvas, map.gridKriging, [extent.xmin, extent.xmax], [extent.ymin, extent.ymax], colors);
     };
 

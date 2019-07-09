@@ -26,39 +26,42 @@
                             for (let i = 0; i < values.length; i++) {
                                 var coors = districtPoints.filter((x) => { return x.Name === districtNames[i]; })[0];
                                 if (!coors || !coors.Coors || !coors.Coors[0]) { continue; }
-                                coors = coors.Coors[0];
-                                samples.push(coors.concat(values[i]));
+                                for (let j = 0; j < coors.Coors.length; j++) {
+                                    
+                                    samples.push(coors.Coors[j].concat(values[i]));
+                                }
                             }
                             if (map.krigingLayer) {
                                 map.removeLayer(map.krigingLayer);
                             }
                             map.gridKriging = null; //null: to load new grid for Kriging,
 
-                            map.krigingLayer = new maptalks.KrigingLayer('kriging', samples, {
+                            map.krigingLayer = new maptalks.KrigingLayer('Nội suy nhiệt độ', samples, {
                                 colors: colors,
                                 regions: map.hcmPolygon,
                                 width: 0.008,
-                                opacity: 0.5,
-                                alpha: 100
+                                opacity: 0.7,
+                                alpha: 100,
+                                zlim: [20,45]
                             }).addTo(map);
 
-                            var txtLabelMin = document.getElementById('divMin');
-                            var txtLabelMax = document.getElementById('divMax');
+                            //var txtLabelMin = document.getElementById('divMin');
+                            //var txtLabelMax = document.getElementById('divMax');
 
-                            txtLabelMin.innerText = record.get('Value').min().toFixed(2);
-                            txtLabelMax.innerText = record.get('Value').max().toFixed(2);
+                            //txtLabelMin.innerText = record.get('Value').min().toFixed(2);
+                            //txtLabelMax.innerText = record.get('Value').max().toFixed(2);
 
 
-                            //    map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
-                            //    samples.forEach(function (m) {
-                            //        var circle = new maptalks.Circle([m[0], m[1]], 12, {
-                            //            symbol: {
-                            //                lineColor: '#f00',
-                            //                fillColor: '#f00'
-                            //            }
-                            //        }).addTo(map.vLayer);
-                            //    });
-                            //}                     
+                            //map.vLayer = new maptalks.VectorLayer('vlayer').addTo(map);
+                            //samples.forEach(function (m) {
+                            //    var circle = new maptalks.Circle([m[0], m[1]], 12, {
+                            //        symbol: {
+                            //            lineColor: '#f00',
+                            //            fillColor: '#f00'
+                            //        }
+                            //    }).addTo(map.vLayer);
+                            //});
+
                         }
                     },
                     itemdblclick: function (grid, record, item, index, e, eOpts) {
@@ -164,11 +167,11 @@
                                                 }
                                             ]
                                         }
-                                     
+
                                     ]
                                 }
                             ],
-                           
+
 
                         }).show();
                     },
@@ -184,7 +187,7 @@
             data.push({
                 DistrictName: dNames[i],
                 Value: values[i]
-            })
+            });
         }
         return data;
     },

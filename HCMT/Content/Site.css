@@ -45,3 +45,23 @@ textarea {
     }
 
 /* Custom Scroll for Chrome Only */
+
+
+/*NAVIGATION BAR*/
+
+.common-navigation .x-panel-body-default {
+    background-color: #013c34;
+}
+.app-logo {
+    width: 700px !important;
+    height: 60px;
+    background: url('Images/banner.png') no-repeat;
+    border: none
+}
+    .app-logo .x-btn-over .x-btn-default-small {
+        background: url('Images/banner.png') no-repeat;
+        border-color: none !important;
+        background-color: none !important;
+    }
+
+/*NAVIGATION BAR*/

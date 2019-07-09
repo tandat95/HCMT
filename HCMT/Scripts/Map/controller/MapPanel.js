@@ -23,12 +23,38 @@
             zoom: 10,
             minZoom: 1,
             maxZoom: 19,
-            baseLayer: new maptalks.TileLayer('tile', {
-                'urlTemplate': 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-                'subdomains': ['a', 'b', 'c', 'd', 'e']
-            })
+            layerSwitcherControl: {
+                'position': 'top-right',
+                // title of base layers
+                'baseTitle': 'Bản đồ nền',
+                // title of layers
+                'overlayTitle': 'Lớp phủ',
+                // layers you don't want to manage with layer switcher
+                'excludeLayers': [],
+                // css class of container element, maptalks-layer-switcher by default
+                'containerClass': 'maptalks-layer-switcher'
+            },
+
+            baseLayer: new maptalks.GroupTileLayer('Base TileLayer', [
+                new maptalks.TileLayer('Mặc định', {
+                    'urlTemplate': 'http://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+                    'subdomains': ['a', 'b', 'c']
+                }),
+                new maptalks.TileLayer('Sáng', {
+                    'visible': false,
+                    'urlTemplate': 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                    'subdomains': ['a', 'b', 'c', 'd']
+                }),
+                new maptalks.TileLayer('Tối', {
+                    'visible': false,
+                    'urlTemplate': 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+                    'subdomains': ['a', 'b', 'c', 'd']
+                })
+            ])
+
         });
-      
+
+
         var hcmBound = HCMT.Global.HCM_BOUND.Coors;
         panel.map.hcmPolygon = new maptalks.Polygon(hcmBound, {
             visible: true,
@@ -46,7 +72,7 @@
                 'polygonOpacity': 0
             }
         });
-        new maptalks.VectorLayer('vector',panel.map.hcmPolygon).addTo(panel.map);
+        new maptalks.VectorLayer('Ranh giới HCM',panel.map.hcmPolygon).addTo(panel.map);
     },
     createLabel: function () {
         var label = document.getElementById('temp-label');

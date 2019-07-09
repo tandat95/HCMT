@@ -157,11 +157,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Common\icon.css" />
-    <Content Include="Content\Common\ol.css" />
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Icon\icons8-pause-32.png" />
     <Content Include="Content\Icon\icons8-play-32.png" />
     <Content Include="Content\Icon\search.png" />
+    <Content Include="Content\Images\layers.png" />
+    <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Map\map.css" />
     <Content Include="Dll\AjaxMin.dll" />
     <Content Include="Dll\AjaxPro.2.dll" />
@@ -1690,6 +1691,7 @@
     <Content Include="Scripts\Map\controller\MapPanel.js" />
     <Content Include="Scripts\Map\Map.js" />
     <Content Include="Scripts\Map\view\MapPanel.js" />
+    <Content Include="Scripts\Navigation\view\Navigation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
