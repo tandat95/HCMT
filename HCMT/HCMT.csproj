@@ -64,6 +64,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -161,7 +164,6 @@
     <Content Include="Content\Icon\icons8-pause-32.png" />
     <Content Include="Content\Icon\icons8-play-32.png" />
     <Content Include="Content\Icon\search.png" />
-    <Content Include="Content\Images\layers.png" />
     <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Map\map.css" />
     <Content Include="Dll\AjaxMin.dll" />

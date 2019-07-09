@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using HCMT.Library.Model;
 using HCMT.Library.Provider;
 
+
 namespace HCMT.Library.Ajax
 {
     public class TempAjax
