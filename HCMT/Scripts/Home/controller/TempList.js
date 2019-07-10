@@ -161,7 +161,7 @@
                                                     text: 'Nhiệt độ',
                                                     dataIndex: 'Value',
                                                     renderer: function (value) {
-                                                        return value.toFixed(2);
+                                                        return parseFloat(value.toFixed(2));
                                                     },
                                                     flex: 1
                                                 }

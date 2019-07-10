@@ -10,7 +10,15 @@
                 {
                     afterrender: this.onMapRender,
                     resize: function (panel) {
-                        
+                        var tempGrid = panel.up('viewport').down('#tempGrid');
+                        if (panel.map.krigingLayer) {
+                            panel.map.removeLayer(panel.map.krigingLayer);
+                            panel.el.mask('Đang tải lại..');
+                            setTimeout(() => {
+                                panel.map.krigingLayer.addTo(panel.map);
+                                panel.unmask();
+                            }, 1000);
+                        }
                     }
                 }
             });

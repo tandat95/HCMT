@@ -56,7 +56,7 @@
                                 var grid = btn.up('viewport').down('#tempGrid');
                                 btn.setIconCls('icon-btn-pause');
                                 btn.setText('Dừng');
-                                btn.status = 'PLAY'
+                                btn.status = 'PLAY';
                                 let i = 0;
                                 btn.playAction = setInterval(function () {
                                     grid.setSelection(i);
@@ -67,9 +67,9 @@
                                         btn.setIconCls('icon-btn-play');
                                         btn.setText('Chạy');
                                         btn.status = 'STOP';
-                                        
+
                                     }
-                                }, timeout)
+                                }, timeout);
                             } else {
                                 if (btn.playAction) window.clearInterval(btn.playAction);
                                 btn.setIconCls('icon-btn-play');
@@ -98,7 +98,7 @@
                         dataIndex: 'Value',
                         flex: 1,
                         renderer: function (value) {
-                            return value.min().toFixed(2);
+                            return parseFloat(value.min().toFixed(2));
                         }
                     },
                     {
@@ -106,7 +106,8 @@
                         dataIndex: 'Value',
                         flex: 1,
                         renderer: function (value) {
-                            return value.max().toFixed(2);
+                            console.log(value);
+                            return parseFloat(value.max().toFixed(2));
                         }
                     }
                 ]
@@ -122,7 +123,7 @@
                 displayInfo: false,
                 overflowHandler: 'menu'
             }
-        ]
+        ];
         this.callParent();
     }
 });
