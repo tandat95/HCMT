@@ -152,7 +152,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\combres.xml" />
+    <Content Include="App_Data\combres.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\combres_full_with_annotation.xml" />
     <Content Include="App_Data\combres_minimal.xml" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1694,7 +1696,9 @@
     <Content Include="Scripts\Map\Map.js" />
     <Content Include="Scripts\Map\view\MapPanel.js" />
     <Content Include="Scripts\Navigation\view\Navigation.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
