@@ -8,7 +8,10 @@
             ({
                 'mappanel':
                 {
-                    afterrender: this.onMapRender
+                    afterrender: this.onMapRender,
+                    resize: function (panel) {
+                        
+                    }
                 }
             });
     },
@@ -23,6 +26,8 @@
             zoom: 10,
             minZoom: 1,
             maxZoom: 19,
+            dragPitch: false,
+            dragRotate: false,
             layerSwitcherControl: {
                 'position': 'top-right',
                 // title of base layers

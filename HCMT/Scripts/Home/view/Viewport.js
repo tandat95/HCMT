@@ -59,7 +59,7 @@
                         items: [
                             {
                                 region: 'west',
-                                title: 'Danh sách kết quả',
+                                title: 'Mô phỏng nhiệt độ bề mặt',
                                 layout:'fit',
                                 width: 400,
                                 split: true,

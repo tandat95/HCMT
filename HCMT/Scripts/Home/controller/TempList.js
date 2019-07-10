@@ -36,13 +36,13 @@
                             }
                             map.gridKriging = null; //null: to load new grid for Kriging,
 
-                            map.krigingLayer = new maptalks.KrigingLayer('Nội suy nhiệt độ', samples, {
+                            map.krigingLayer = new maptalks.KrigingLayer('Nhiệt độ bề mặt', samples, {
                                 colors: colors,
                                 regions: map.hcmPolygon,
                                 width: 0.008,
                                 opacity: 0.7,
                                 alpha: 100,
-                                zlim: [20,45]
+                                zlim: [15, 45]
                             }).addTo(map);
 
                             //var txtLabelMin = document.getElementById('divMin');
