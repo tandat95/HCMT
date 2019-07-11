@@ -145,6 +145,7 @@
     <Compile Include="App_Start\Combres.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1571,6 +1572,11 @@
     <Content Include="libs\maptalk\js\maptalks.kriginglayer.js" />
     <Content Include="libs\maptalk\js\maptalks.kriginglayer.min.js" />
     <Content Include="libs\maptalk\js\maptalks.min.js" />
+    <Content Include="Scripts\Admin\admin.js" />
+    <Content Include="Scripts\Admin\controller\Viewport.js" />
+    <Content Include="Scripts\Admin\view\ImportHitory.js" />
+    <Content Include="Scripts\Admin\view\HistoryReview.js" />
+    <Content Include="Scripts\Admin\view\Viewport.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.min.map" />
     <Content Include="Scripts\Common\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\Common\bootstrap.js" />
@@ -1690,8 +1696,6 @@
     <Content Include="Scripts\Home\home.js" />
     <Content Include="Scripts\Home\view\TempList.js" />
     <Content Include="Scripts\Home\view\Viewport.js" />
-    <Content Include="Scripts\Manager\manager.js" />
-    <Content Include="Scripts\Manager\view\Viewport.js" />
     <Content Include="Scripts\Map\controller\MapPanel.js" />
     <Content Include="Scripts\Map\Map.js" />
     <Content Include="Scripts\Map\view\MapPanel.js" />
@@ -1710,6 +1714,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

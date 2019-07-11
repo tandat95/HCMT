@@ -15,9 +15,9 @@
                 itemId: 'tempGrid',
                 layout: 'fit',
                 scrollable: true,
-                store: {
-                    fields: ["Time", "Value"]
-                },
+                store: Ext.create('Ext.data.Store', {
+                    fields: ["Time", "Value", "Min", "Max"]
+                }),
                 tbar: [
                     {
                         fieldLabel: 'Tốc độ',
@@ -57,7 +57,8 @@
                                 btn.setIconCls('icon-btn-pause');
                                 btn.setText('Dừng');
                                 btn.status = 'PLAY';
-                                let i = 0;
+                                var record = grid.getSelection()[0];
+                                let i = record ? grid.getStore().getRange().indexOf(record) : 0;
                                 btn.playAction = setInterval(function () {
                                     grid.setSelection(i);
                                     grid.view.scrollRowIntoView(i);
@@ -67,7 +68,6 @@
                                         btn.setIconCls('icon-btn-play');
                                         btn.setText('Chạy');
                                         btn.status = 'STOP';
-
                                     }
                                 }, timeout);
                             } else {
@@ -86,7 +86,7 @@
                         width: 60
                     },
                     {
-                        text: 'Thời gian',
+                        text: 'Ngày',
                         dataIndex: 'Time',
                         flex: 1,
                         renderer: function (value) {
@@ -94,21 +94,24 @@
                         }
                     },
                     {
-                        text: 'Min',
-                        dataIndex: 'Value',
-                        flex: 1,
+                        text: 'Giờ',
+                        dataIndex: 'Time',
+                        flex: 0.7,
                         renderer: function (value) {
-                            return parseFloat(value.min().toFixed(2));
+                            return Ext.Date.format(value, 'h:i');
                         }
                     },
                     {
-                        text: 'Max',
-                        dataIndex: 'Value',
-                        flex: 1,
-                        renderer: function (value) {
-                            console.log(value);
-                            return parseFloat(value.max().toFixed(2));
-                        }
+                        text: 'Thấp nhất (°C)',
+                        dataIndex: 'Min',
+                        flex: 1
+
+                    },
+                    {
+                        text: 'Cao nhất (°C)',
+                        dataIndex: 'Max',
+                        sortable: true,
+                        flex: 1
                     }
                 ]
             }

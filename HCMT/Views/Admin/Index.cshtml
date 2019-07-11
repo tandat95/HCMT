@@ -1,0 +1,27 @@
+﻿@using Combres.Mvc;
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section ajaxpro{
+    @Url.CombresLink("HCMTAdmin_Ajax")
+}
+
+@section Styles{
+    @Url.CombresLink("HCMTAdmin_Style")
+
+}
+
+@*@if (ViewBag._GetInitData != null)
+{
+    <script type="text/javascript">
+                @Html.Raw(ViewBag._GetInitData)
+    </script>
+}*@
+
+@section Scripts{
+    @Url.CombresLink("HCMTAdmin_Script")
+}
+

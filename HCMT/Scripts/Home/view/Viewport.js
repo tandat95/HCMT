@@ -61,7 +61,7 @@
                                 region: 'west',
                                 title: 'Mô phỏng nhiệt độ bề mặt',
                                 layout:'fit',
-                                width: 400,
+                                width: 450,
                                 split: true,
                                 collapsible: true,
                                 hideCollapseTool: true,

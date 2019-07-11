@@ -9,12 +9,21 @@
                     afterrender: function (grid) {
                         HCMT.Library.Ajax.TempAjax.GetTempData(new Date("3/1/2018"), new Date("4/30/2018"), function (res) {
                             if (res && res.value) {
-                                grid.getStore().setData(res.value);
+                                var data = [];
+                                for (let i = 0; i < res.value.length; i++) {
+                                    data.push({
+                                        Time: res.value[i].Time,
+                                        Value: res.value[i].Value,
+                                        Min: res.value[i].Value.min().toFixed(2),
+                                        Max: res.value[i].Value.max().toFixed(2),
+                                        DistrictNames: res.value[i].DistrictNames
+                                    });
+                                }
+                                grid.getStore().setData(data);
                             }
                         });
                     },
                     select: function (grid, record, index, eOpts) {
-
                         var viewport = grid.view.up('viewport');
                         var map = viewport.down('mappanel').map;
                         var values = record.get('Value');
@@ -161,7 +170,7 @@
                                                     text: 'Nhiệt độ',
                                                     dataIndex: 'Value',
                                                     renderer: function (value) {
-                                                        return parseFloat(value.toFixed(2));
+                                                        return value.toFixed(2);
                                                     },
                                                     flex: 1
                                                 }
@@ -170,8 +179,7 @@
 
                                     ]
                                 }
-                            ],
-
+                            ]
 
                         }).show();
                     },
@@ -196,7 +204,18 @@
         grid.getEl().mask('Đang tải...');
         HCMT.Library.Ajax.TempAjax.GetTempData(fromDate, toDate, function (res) {
             if (res && res.value) {
-                grid.getStore().setData(res.value);
+                var data = [];
+                for (let i = 0; i < res.value.length; i++) {
+                    data.push({
+                        Time: res.value[i].Time,
+                        Value: res.value[i].Value,
+                        Min: res.value[i].Value.min().toFixed(2),
+                        Max: res.value[i].Value.max().toFixed(2),
+                        DistrictNames: res.value[i].DistrictNames
+                    });
+                }
+
+                grid.getStore().setData(data);
             }
             grid.getEl().unmask();
         });

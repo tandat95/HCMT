@@ -59,7 +59,6 @@
     </resourceSet>
 
     <resourceSet name="TEMPHome_Style" type="css" debugEnabled="true">
-      <resource reference="siteCss" />
       <resource reference="TEMPMap_Style" />
     </resourceSet>
 
@@ -78,19 +77,21 @@
     </resourceSet>
     <!--TEMP HOM-->
 
-    <!--TEMP MANAGER -->
-    <resourceSet name="TEMPManager_Ajax" type="js">
+    <!--HCMT ADMIN -->
+    <resourceSet name="HCMTAdmin_Ajax" type="js">
       <resource path="~/ajaxpro/HCMT.Library.Ajax.TempAjax,HCMT.Library.ashx" mode ="dynamic"/>
     </resourceSet>
 
-    <resourceSet name="TEMPManager_Style" type="css" debugEnabled="true">
-      <resource reference="siteCss" />
+    <resourceSet name="HCMTAdmin_Style" type="css" debugEnabled="true">
     </resourceSet>
 
-    <resourceSet name="TEMPManager_Script" type="js" debugEnabled="true">
-      <resource path="~/scripts/manager/view/Viewport.js" />
-      <resource path="~/scripts/manager/manager.js" />
+    <resourceSet name="HCMTAdmin_Script" type="js" debugEnabled="true">
+      
+      <resource path="~/scripts/admin/view/ImportHitory.js" />
+      <resource path="~/scripts/admin/view/HistoryReview.js" />
+      <resource path="~/scripts/admin/view/Viewport.js" />
+      <resource path="~/scripts/admin/admin.js" />
     </resourceSet>
-    <!--TEMP MANAGER -->
+    <!--HCMT ADMIN -->
   </resourceSets>
 </combres>
