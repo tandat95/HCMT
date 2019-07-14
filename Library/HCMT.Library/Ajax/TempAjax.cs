@@ -17,11 +17,11 @@ namespace HCMT.Library.Ajax
         {
             MongoProvider.InsertData();
         }
-        [AjaxMethod]
-        public List<HcmTemp> ImportData()
-        {
-            return MongoProvider.ImportData();
-        }
+        //[AjaxMethod]
+        //public List<HcmTemp> ImportData(string fileName, string filePath)
+        //{
+        //    return MongoProvider.ImportData(fileName, filePath);
+        //}
 
         [AjaxMethod]
         public HcmShape GetHCMBound()
@@ -38,6 +38,21 @@ namespace HCMT.Library.Ajax
         public List<HcmTemp> GetTempData(DateTime startTime, DateTime endTime)
         {
             return MongoProvider.GetTempData(startTime, endTime);
+        }
+        [AjaxMethod]
+        public List<DataHistoryLog> GetAllDataImportLog()
+        {
+            return MongoProvider.GetAllDataHistoryLog();
+        }
+        [AjaxMethod]
+        public List<HcmTemp> GetDataByLogId(string logId)
+        {
+            return MongoProvider.GetDataByLogId(logId);
+        }
+        [AjaxMethod]
+        public bool DeleteDataByIds(string[] IDs)
+        {
+            return MongoProvider.DeleteDataByIds(IDs);
         }
     }
 }

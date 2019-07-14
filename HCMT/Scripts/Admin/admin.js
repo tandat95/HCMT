@@ -9,7 +9,7 @@
 
         controllers:
             [
-
+                'Admin.controller.ImportHistory'
             ],
 
         launch: function () {

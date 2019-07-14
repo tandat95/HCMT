@@ -151,6 +151,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\combres.xml">
@@ -166,6 +169,8 @@
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Icon\icons8-pause-32.png" />
     <Content Include="Content\Icon\icons8-play-32.png" />
+    <Content Include="Content\Icon\import.png" />
+    <Content Include="Content\Icon\remove.png" />
     <Content Include="Content\Icon\search.png" />
     <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Map\map.css" />
@@ -1573,8 +1578,9 @@
     <Content Include="libs\maptalk\js\maptalks.kriginglayer.min.js" />
     <Content Include="libs\maptalk\js\maptalks.min.js" />
     <Content Include="Scripts\Admin\admin.js" />
+    <Content Include="Scripts\Admin\controller\ImportHistory.js" />
     <Content Include="Scripts\Admin\controller\Viewport.js" />
-    <Content Include="Scripts\Admin\view\ImportHitory.js" />
+    <Content Include="Scripts\Admin\view\ImportHistory.js" />
     <Content Include="Scripts\Admin\view\HistoryReview.js" />
     <Content Include="Scripts\Admin\view\Viewport.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.min.map" />
@@ -1715,6 +1721,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Upload.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

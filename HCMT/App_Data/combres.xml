@@ -87,7 +87,8 @@
 
     <resourceSet name="HCMTAdmin_Script" type="js" debugEnabled="true">
       
-      <resource path="~/scripts/admin/view/ImportHitory.js" />
+      <resource path="~/scripts/admin/view/ImportHistory.js" />
+      <resource path="~/scripts/admin/controller/ImportHistory.js" />
       <resource path="~/scripts/admin/view/HistoryReview.js" />
       <resource path="~/scripts/admin/view/Viewport.js" />
       <resource path="~/scripts/admin/admin.js" />

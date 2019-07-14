@@ -8,3 +8,9 @@
 .icon-btn-pause {
     background-image: url('../Icon/icons8-pause-32.png');
 }
+.icon-btn-remove {
+    background-image: url('../Icon/remove.png');
+}
+.icon-btn-import {
+    background-image: url('../Icon/import.png');
+}

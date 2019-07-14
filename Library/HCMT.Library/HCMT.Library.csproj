@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ajax\TempAjax.cs" />
+    <Compile Include="Model\DataHistoryLog.cs" />
     <Compile Include="Model\HcmShape.cs" />
     <Compile Include="Model\HcmTemp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

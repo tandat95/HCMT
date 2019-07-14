@@ -12,6 +12,7 @@ using MongoDB.Bson;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using HCMT.Library.Model;
+using System.IO;
 
 namespace HCMT.Library.Provider
 {
@@ -270,51 +271,111 @@ namespace HCMT.Library.Provider
            );
         }
 
-        public static List<HcmTemp> ImportData()
+        public static bool ImportData(string fileName, MemoryStream memoryStream)
         {
-            using (TextFieldParser parser = new TextFieldParser(@"D:\tandat\2019.csv"))
-            {
-                try
-                {
-                    parser.TextFieldType = FieldType.Delimited;
-                    parser.SetDelimiters(",");
-                    var listTemp = new List<HcmTemp>();
-                    var districtNames = new List<string>();
-                    while (!parser.EndOfData)
-                    {
 
-                        if (parser.LineNumber == 1)
-                        {
-                            districtNames = parser.ReadFields().ToList();
-                            districtNames.RemoveAt(0);
-                            continue;
-                        }
-                        string[] fields = parser.ReadFields();
-                        var values = fields.Skip(1).ToArray();
-                        var newValues = new List<double>();
-                        for(int i = 0; i< values.Length; i++)
-                        {
-                            newValues.Add(double.Parse(values[i]));
-                        }
-                        listTemp.Add(new HcmTemp
-                        {
-                            DistrictNames = districtNames,
-                            Time = DateTime.Parse(fields[0]),
-                            Value = newValues.ToArray()
-                        });
-                        var dateTime = DateTime.Parse(fields[0]);
-                    }
-                    var temp = db.GetCollection<HcmTemp>("hcm_temp");
-                    temp.InsertBatch<HcmTemp>(listTemp);
-                    return listTemp;
-                }
-                catch (Exception ex)
+            using (TextFieldParser parser = new TextFieldParser(memoryStream))
+            {
+                string logId = InsertDataHistoryLog(fileName);
+                if (logId != null)
                 {
-                    return null;
+                    try
+                    {
+                        parser.TextFieldType = FieldType.Delimited;
+                        parser.SetDelimiters(",");
+                        var listTemp = new List<HcmTemp>();
+                        var districtNames = new List<string>();
+                        while (!parser.EndOfData)
+                        {
+
+                            if (parser.LineNumber == 1)
+                            {
+                                districtNames = parser.ReadFields().ToList();
+                                districtNames.RemoveAt(0);
+                                continue;
+                            }
+                            string[] fields = parser.ReadFields();
+                            var values = fields.Skip(1).ToArray();
+                            var newValues = new List<double>();
+                            for (int i = 0; i < values.Length; i++)
+                            {
+                                newValues.Add(double.Parse(values[i]));
+                            }
+                            listTemp.Add(new HcmTemp
+                            {
+                                DistrictNames = districtNames,
+                                Time = DateTime.Parse(fields[0]),
+                                Value = newValues.ToArray(),
+                                LogId = logId
+                            });
+                            var dateTime = DateTime.Parse(fields[0]);
+                        }
+                        var temp = db.GetCollection<HcmTemp>("hcm_temp");
+                        temp.InsertBatch<HcmTemp>(listTemp);
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
                 }
+                return false;
             }
         }
 
+        public static string InsertDataHistoryLog(string fileName)
+        {
+            try
+            {
+                string id = Guid.NewGuid().ToString("N");
+                var temp = db.GetCollection<DataHistoryLog>("data_history_log");
+                temp.Insert<DataHistoryLog>(new DataHistoryLog
+                {
+                    FileName = fileName,
+                    Time = DateTime.Now,
+                    ID = id
+                });
+                return id;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        
+        }
+        public static List<DataHistoryLog> GetAllDataHistoryLog()
+        {
+            return db.GetCollection<DataHistoryLog>("data_history_log").FindAll()
+                .SetFields(Fields.Exclude("_id").Include("FileName", "Time", "ID"))
+                .ToList();
+        }
+
+        public static bool DeleteDataByIds(string[] IDs)
+        {
+            var dataLog = db.GetCollection<DataHistoryLog>("data_history_log");
+            var hcmtemp = db.GetCollection<DataHistoryLog>("hcm_temp");
+
+            try
+            {
+                for(var i = 0; i< IDs.Length; i++)
+                {
+                    dataLog.Remove(Query.EQ("ID", IDs[i]));
+                    hcmtemp.Remove(Query.EQ("ID", IDs[i]));
+                }
+                return true;
+                
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static List<HcmTemp> GetDataByLogId(string logId)
+        {
+            return  db.GetCollection<HcmTemp>("hcm_temp").Find(Query.EQ("LogId", logId))
+                .SetFields(Fields.Exclude("_id").Include("DistrictNames", "Time", "Value", "ID"))
+                .ToList();
+        }
         public static HcmShape GetHCMBound()
         {
             return db.GetCollection<HcmShape>("hcm_shape")

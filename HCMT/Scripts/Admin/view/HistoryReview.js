@@ -4,7 +4,7 @@
     layout: 'fit',
 
     store: Ext.create('Ext.data.Store', {
-        fields: ["Time", "Value", "Min", "Max"]
+        fields: ["ID","Time", "Value", "Min", "Max"]
     }),
     columns: [
         {
