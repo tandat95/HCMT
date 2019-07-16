@@ -172,6 +172,7 @@
     <Content Include="Content\Icon\import.png" />
     <Content Include="Content\Icon\remove.png" />
     <Content Include="Content\Icon\search.png" />
+    <Content Include="Content\Images\banner_.png" />
     <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Map\map.css" />
     <Content Include="Dll\AjaxMin.dll" />
