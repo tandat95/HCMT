@@ -35,9 +35,9 @@ namespace HCMT.Library.Ajax
         }
 
         [AjaxMethod]
-        public List<HcmTemp> GetTempData(DateTime startTime, DateTime endTime)
+        public QueryResult GetTempData(DateTime startTime, DateTime endTime, int start, int limit)
         {
-            return MongoProvider.GetTempData(startTime, endTime);
+            return MongoProvider.GetTempData(startTime, endTime, start, limit);
         }
         [AjaxMethod]
         public List<DataHistoryLog> GetAllDataImportLog()

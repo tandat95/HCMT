@@ -337,11 +337,11 @@ namespace HCMT.Library.Provider
                 });
                 return id;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
-        
+
         }
         public static List<DataHistoryLog> GetAllDataHistoryLog()
         {
@@ -357,13 +357,13 @@ namespace HCMT.Library.Provider
 
             try
             {
-                for(var i = 0; i< IDs.Length; i++)
+                for (var i = 0; i < IDs.Length; i++)
                 {
                     dataLog.Remove(Query.EQ("ID", IDs[i]));
                     hcmtemp.Remove(Query.EQ("ID", IDs[i]));
                 }
                 return true;
-                
+
             }
             catch
             {
@@ -372,7 +372,7 @@ namespace HCMT.Library.Provider
         }
         public static List<HcmTemp> GetDataByLogId(string logId)
         {
-            return  db.GetCollection<HcmTemp>("hcm_temp").Find(Query.EQ("LogId", logId))
+            return db.GetCollection<HcmTemp>("hcm_temp").Find(Query.EQ("LogId", logId))
                 .SetFields(Fields.Exclude("_id").Include("DistrictNames", "Time", "Value", "ID"))
                 .ToList();
         }
@@ -390,12 +390,44 @@ namespace HCMT.Library.Provider
                 .SetFields(Fields.Exclude("_id").Include("Level", "Coors", "Type", "Name"))
                 .ToList();
         }
-        public static List<HcmTemp> GetTempData(DateTime start, DateTime end)
+        public static QueryResult GetTempData(DateTime startDate, DateTime endDate, int start, int limit)
         {
-            return db.GetCollection<HcmTemp>("hcm_temp")
-                .Find(Query.And(Query.GTE("Time", start), Query.LTE("Time", end)))
+            var rs = db.GetCollection<HcmTemp>("hcm_temp")
+                .Find(Query.And(Query.GTE("Time", startDate), Query.LTE("Time", endDate)))
                 .SetFields(Fields.Exclude("_id").Include("DistrictNames", "Time", "Value"))
-                .ToList();
+                .SetSkip(start)
+                .SetLimit(limit);
+                
+            var hcmTempList = rs.ToList();
+            if (hcmTempList.Count > 0)
+            {
+                var data = new List<object>();                
+                for (var i = 0; i < hcmTempList.Count; i++)
+                {
+                    data.Add(new
+                    {
+                        Time = hcmTempList[i].Time,
+                        Value = hcmTempList[i].Value,
+                        Min = hcmTempList[i].Value.Min(),
+                        Max = hcmTempList[i].Value.Max(),
+                        DistrictNames = hcmTempList[i].DistrictNames,
+                        ID = hcmTempList[i].ID,
+
+                    });
+                }
+                return new QueryResult
+                {
+                    Data = data,
+                    Success = true,
+                    Total = rs.Count()
+            };
+            }
+            return new QueryResult
+            {
+                Data = null,
+                Success = false,
+                Total =0
+            };
         }
     }
 }

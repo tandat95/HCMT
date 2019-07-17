@@ -9,13 +9,13 @@
         me.items = [
             {
                 xtype: 'common-navigation',
-                layout:'fit'
+                layout: 'fit'
             },
             {
                 region: 'center',
                 itemId: 'centerPanel',
                 layout: 'fit',
-                tbar:[
+                tbar: [
                     {
                         xtype: 'datefield',
                         itemId: 'txtFromDate',
@@ -60,14 +60,60 @@
                             {
                                 region: 'west',
                                 title: 'Mô phỏng nhiệt độ bề mặt',
-                                layout:'fit',
+                                layout: 'fit',
                                 width: 450,
                                 split: true,
                                 collapsible: true,
                                 hideCollapseTool: true,
                                 collapseMode: 'mini',
                                 items: {
-                                    xtype: 'tempgrid'
+                                    xtype: 'querycomponent',
+                                    FIELDS: ["Time", "Value", "Min", "Max"],
+                                    QUERY: {
+                                        Url: HCMT.Library.Ajax.TempAjax.url,
+                                        Method: 'GetTempData',
+                                        Limit: 25,
+                                        Start: 0,
+                                        Data: {
+                                            endTime: "/Date(1563296400000)/",
+                                            startTime: "/Date(1519837200000)/"
+                                        }
+                                    },
+                                    columns: [
+                                        {
+                                            text: 'STT',
+                                            xtype: 'rownumberer',
+                                            width: 60
+                                        },
+                                        {
+                                            text: 'Ngày',
+                                            dataIndex: 'Time',
+                                            flex: 1,
+                                            renderer: function (value) {
+                                                return Ext.Date.format(value, 'd/m/Y');
+                                            }
+                                        },
+                                        {
+                                            text: 'Giờ',
+                                            dataIndex: 'Time',
+                                            flex: 0.7,
+                                            renderer: function (value) {
+                                                return Ext.Date.format(value, 'h:i');
+                                            }
+                                        },
+                                        {
+                                            text: 'Thấp nhất (°C)',
+                                            dataIndex: 'Min',
+                                            flex: 1
+
+                                        },
+                                        {
+                                            text: 'Cao nhất (°C)',
+                                            dataIndex: 'Max',
+                                            sortable: true,
+                                            flex: 1
+                                        }
+                                    ]
                                 }
                             },
                             {
@@ -77,7 +123,7 @@
                             }
                         ]
                     }
-                 
+
                 ]
             }
         ];

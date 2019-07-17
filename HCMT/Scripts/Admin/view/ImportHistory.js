@@ -41,6 +41,7 @@
         var me = this;
         me.dockedItems = [
             {
+                store: me.store,
                 xtype: 'pagingtoolbar',
                 inputItemWidth: 50,
                 beforePageText: 'Trang',

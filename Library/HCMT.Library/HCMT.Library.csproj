@@ -66,6 +66,7 @@
     <Compile Include="Model\DataHistoryLog.cs" />
     <Compile Include="Model\HcmShape.cs" />
     <Compile Include="Model\HcmTemp.cs" />
+    <Compile Include="Model\QueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\MongoProvider.cs" />
   </ItemGroup>
