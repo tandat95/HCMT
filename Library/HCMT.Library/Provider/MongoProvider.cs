@@ -353,14 +353,14 @@ namespace HCMT.Library.Provider
         public static bool DeleteDataByIds(string[] IDs)
         {
             var dataLog = db.GetCollection<DataHistoryLog>("data_history_log");
-            var hcmtemp = db.GetCollection<DataHistoryLog>("hcm_temp");
+            var hcmtemp = db.GetCollection<HcmTemp>("hcm_temp");
 
             try
             {
                 for (var i = 0; i < IDs.Length; i++)
                 {
                     dataLog.Remove(Query.EQ("ID", IDs[i]));
-                    hcmtemp.Remove(Query.EQ("ID", IDs[i]));
+                    hcmtemp.Remove(Query.EQ("LogId", IDs[i]));
                 }
                 return true;
 
