@@ -20,15 +20,17 @@
         font-weight: bold
     }
 .maptalks-layer-switcher .panel {
-    background-color:  #2d3f79 !important;
+    background-color: #2fb738 !important;
 }
 .maptalks-layer-switcher button {
     width: 28px;
     height: 28px;
     background: url('https://cdn.jsdelivr.net/npm/maptalks/dist/images/control/layer.png') no-repeat 4px 4px;
-    background-color: #2d3f79;
+    background-color: #2fb738;
     border: none;
 }
 .maptalks-layer-switcher label {
     margin-bottom: unset !important;
+    color:dimgrey !important;
 }
+

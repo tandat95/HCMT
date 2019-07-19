@@ -19,6 +19,7 @@
       <resource path="~/content/bootstrap.css" />
       <resource path="~/content/Site.css" />
       <resource path="~/content/common/icon.css" />
+      <resource path="~/content/common/login.css" />
     </resourceSet>
     <resourceSet name="siteJs" type="js">
       <resource path="~/scripts/common/jquery-3.3.1.min.js" />

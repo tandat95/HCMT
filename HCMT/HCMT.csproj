@@ -154,6 +154,7 @@
     <Compile Include="App_Start\Combres.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,6 +176,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Common\icon.css" />
+    <Content Include="Content\Common\login.css" />
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Icon\icons8-pause-32.png" />
     <Content Include="Content\Icon\icons8-play-32.png" />
@@ -1733,6 +1735,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Upload.ashx" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

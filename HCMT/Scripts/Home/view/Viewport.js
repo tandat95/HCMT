@@ -33,7 +33,7 @@
                     {
                         xtype: 'datefield',
                         itemId: 'txtToDate',
-                        value: new Date("4/30/2018"),
+                        value: new Date(),
                         fieldLabel: 'Đến ngày',
                         labelWidth: 60,
                         name: 'dtChooseDate',
@@ -67,53 +67,8 @@
                                 hideCollapseTool: true,
                                 collapseMode: 'mini',
                                 items: {
-                                    xtype: 'querycomponent',
-                                    FIELDS: ["Time", "Value", "Min", "Max"],
-                                    QUERY: {
-                                        Url: HCMT.Library.Ajax.TempAjax.url,
-                                        Method: 'GetTempData',
-                                        Limit: 25,
-                                        Start: 0,
-                                        Data: {
-                                            endTime: "/Date(1563296400000)/",
-                                            startTime: "/Date(1519837200000)/"
-                                        }
-                                    },
-                                    columns: [
-                                        {
-                                            text: 'STT',
-                                            xtype: 'rownumberer',
-                                            width: 60
-                                        },
-                                        {
-                                            text: 'Ngày',
-                                            dataIndex: 'Time',
-                                            flex: 1,
-                                            renderer: function (value) {
-                                                return Ext.Date.format(value, 'd/m/Y');
-                                            }
-                                        },
-                                        {
-                                            text: 'Giờ',
-                                            dataIndex: 'Time',
-                                            flex: 0.7,
-                                            renderer: function (value) {
-                                                return Ext.Date.format(value, 'h:i');
-                                            }
-                                        },
-                                        {
-                                            text: 'Thấp nhất (°C)',
-                                            dataIndex: 'Min',
-                                            flex: 1
-
-                                        },
-                                        {
-                                            text: 'Cao nhất (°C)',
-                                            dataIndex: 'Max',
-                                            sortable: true,
-                                            flex: 1
-                                        }
-                                    ]
+                                    xtype: 'tempgrid',
+                                   
                                 }
                             },
                             {

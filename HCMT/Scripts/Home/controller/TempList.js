@@ -4,7 +4,7 @@
     init: function () {
         this.control
             ({
-                'tempgrid #tempGrid':
+                'tempgrid':
                 {
                     afterrender: function (grid) {
                         HCMT.Library.Ajax.TempAjax.GetTempData(new Date("3/1/2018"), new Date("4/30/2018"), function (res) {
@@ -182,8 +182,37 @@
                             ]
 
                         }).show();
-                    },
-                    reloaddata: this.reloadData
+                    }
+                    //reloaddata: this.reloadData
+                },
+                'tempgrid #btnPlay': {
+                    click: function(btn) {
+                        if (btn.status === 'STOP') {
+                            let timeout = btn.up('panel').down('#cbxTimeout').getValue();
+                            var grid = btn.up('viewport').down('tempgrid');
+                            btn.setIconCls('icon-btn-pause');
+                            btn.setText('Dừng');
+                            btn.status = 'PLAY';
+                            var record = grid.getSelection()[0];
+                            let i = record ? grid.getStore().getRange().indexOf(record) : 0;
+                            btn.playAction = setInterval(function () {
+                                grid.setSelection(i);
+                                grid.view.scrollRowIntoView(i);
+                                i++;
+                                if (i >= grid.getStore().getRange().length) {
+                                    if (btn.playAction) window.clearInterval(btn.playAction);
+                                    btn.setIconCls('icon-btn-play');
+                                    btn.setText('Chạy');
+                                    btn.status = 'STOP';
+                                }
+                            }, timeout);
+                        } else {
+                            if (btn.playAction) window.clearInterval(btn.playAction);
+                            btn.setIconCls('icon-btn-play');
+                            btn.setText('Chạy');
+                            btn.status = 'STOP';
+                        }
+                    }
                 }
             });
     },
@@ -199,28 +228,28 @@
         }
         return data;
     },
-    reloadData: function (grid, fromDate, toDate) {
-        grid.getStore().setData(null);
-        grid.getEl().mask('Đang tải...');
-        HCMT.Library.Ajax.TempAjax.GetTempData(fromDate, toDate, function (res) {
-            if (res && res.value) {
-                var data = [];
-                for (let i = 0; i < res.value.length; i++) {
-                    data.push({
-                        Time: res.value[i].Time,
-                        Value: res.value[i].Value,
-                        Min: res.value[i].Value.min().toFixed(2),
-                        Max: res.value[i].Value.max().toFixed(2),
-                        DistrictNames: res.value[i].DistrictNames
-                    });
-                }
+    //reloadData: function (grid, fromDate, toDate) {
+    //    grid.getStore().setData(null);
+    //    grid.getEl().mask('Đang tải...');
+    //    HCMT.Library.Ajax.TempAjax.GetTempData(fromDate, toDate, function (res) {
+    //        if (res && res.value) {
+    //            var data = [];
+    //            for (let i = 0; i < res.value.length; i++) {
+    //                data.push({
+    //                    Time: res.value[i].Time,
+    //                    Value: res.value[i].Value,
+    //                    Min: res.value[i].Value.min().toFixed(2),
+    //                    Max: res.value[i].Value.max().toFixed(2),
+    //                    DistrictNames: res.value[i].DistrictNames
+    //                });
+    //            }
 
-                grid.getStore().setData(data);
-            }
-            grid.getEl().unmask();
-        });
+    //            grid.getStore().setData(data);
+    //        }
+    //        grid.getEl().unmask();
+    //    });
 
-    },
+    //},
     onPanelResize: function (panel, newWidth, newHeight, c, d) {
         if (panel.chart) {
             panel.chart.reflow();

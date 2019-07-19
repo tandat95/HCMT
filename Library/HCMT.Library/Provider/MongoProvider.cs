@@ -424,7 +424,7 @@ namespace HCMT.Library.Provider
             }
             return new QueryResult
             {
-                Data = null,
+                Data = new List<object>(),
                 Success = false,
                 Total =0
             };
