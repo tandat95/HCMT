@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -51,6 +51,7 @@ textarea {
 
 .common-navigation .x-panel-body-default {
     background-color: #2fb738;
+    border-bottom: 2px solid red
 }
 .app-logo {
     width: 700px !important;
@@ -58,10 +59,134 @@ textarea {
     background: url('Images/banner.png') no-repeat;
     border: none
 }
-    .app-logo .x-btn-over .x-btn-default-small {
-        background: url('Images/banner.png') no-repeat;
+    .app-logo.x-btn-over.x-btn-default-small {
+        background: url('Images/banner.png') no-repeat !important;
         border-color: none !important;
         background-color: none !important;
     }
+    .app-logo.x-btn-focus {
+        background: url('Images/banner.png') no-repeat !important;
+        border-color: none !important;
+        background-color: none !important;
+    }
+    .common-navigation-button.btn-account {
+        width: 140px !important;
+        float: right
+    }
+common-navigation-button.x-btn-default-small {
+    padding: 18px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-style: solid;
+    background-color: transparent;
+}
 
+.common-navigation-button.x-btn-over.x-btn-default-small {
+    background-color: #0077a9;
+}
+
+.common-navigation-button.x-btn-pressed.x-btn-default-small {
+    background-color: #0077a9;
+    outline: 0;
+}
+
+.common-navigation-button.x-btn-focus.x-btn-default-small {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+.common-navigation-button.x-btn-default-medium {
+    padding: 14px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-style: solid;
+    background-color: transparent;
+}
+
+.common-navigation-button.x-btn-over.x-btn-default-medium {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.common-navigation-button.x-btn-pressed.x-btn-default-medium {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: 0;
+}
+
+.common-navigation-button.x-btn.x-btn-menu-active.x-btn-default-medium {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: 0;
+}
+
+.common-navigation-button.x-btn-focus.x-btn-default-medium {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+/*BreadScum*/
+.common-navigation-button.x-btn-plain-toolbar-small {
+    padding: 6px;
+    color: #fff !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-style: solid;
+    background-color: transparent;
+    -webkit-border-radius: 3px;
+}
+
+.common-navigation-button.x-btn-over.x-btn-plain-toolbar-small {
+    background-color: #dfeaf2;
+}
+
+.common-navigation-button.x-btn-pressed.x-btn-plain-toolbar-small {
+    background-color: #dfeaf2;
+    outline: 0;
+}
+
+.common-navigation-button.x-btn-focus.x-btn-plain-toolbar-small {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+.common-navigation-button.x-btn-plain-toolbar-medium {
+    padding: 8px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-style: solid;
+    background-color: transparent;
+}
+
+.common-navigation-button.x-btn-over.x-btn-plain-toolbar-medium {
+    background-color: #dfeaf2;
+}
+
+.common-navigation-button.x-btn-pressed.x-btn-plain-toolbar-medium {
+    background-color: #dfeaf2;
+    outline: 0;
+}
+
+.common-navigation-button.x-btn-focus.x-btn-plain-toolbar-medium {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
 /*NAVIGATION BAR*/
