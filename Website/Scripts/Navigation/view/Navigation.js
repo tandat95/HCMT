@@ -2,6 +2,8 @@
     extend: 'Ext.panel.Panel',
     alias: 'widget.common-navigation',
     height: 60,
+    shadow: true,
+
     region: 'north',
     cls: 'common-navigation',
     layout: {
@@ -29,11 +31,14 @@
                 scale: 'medium',
                 itemId: 'account',
                 tooltip: 'Account',
-                iconCls: 'icon-user-24',
+                iconCls: 'fa fa-user fa-2x',
                 text: 'Admin',
                 menu: [
                     {
-                        text: 'Đăng xu'
+                        text: 'Đăng xuất'
+                    },
+                    {
+                        text: 'Đổi mật khẩu'
                     }
                 ]
             }

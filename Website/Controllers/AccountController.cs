@@ -87,7 +87,13 @@ namespace HCMT.Controllers
                     return View(model);
             }
         }
-
+        // GET: /Account/Logout
+        [AllowAnonymous]
+        public ActionResult Logout()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "Account");
+        }
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]

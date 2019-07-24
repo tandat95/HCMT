@@ -235,7 +235,6 @@
     <Content Include="Content\Icon\remove.png" />
     <Content Include="Content\Icon\search.png" />
     <Content Include="Content\Images\login_bg.jpg" />
-    <Content Include="Content\Images\banner_.png" />
     <Content Include="Content\Images\banner.png" />
     <Content Include="Content\Map\map.css" />
     <Content Include="Dll\AjaxMin.dll" />
@@ -982,6 +981,9 @@
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\resources\theme-neutral\images\window\toast\icon16_info.png" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp-debug.js" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\theme-crisp.js" />
+    <Content Include="libs\font-awesome\css\font-awesome.css" />
+    <Content Include="libs\font-awesome\css\font-awesome.min.css" />
+    <Content Include="libs\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="libs\Highcharts-7.1.2\code\css\annotations\popup.css" />
     <Content Include="libs\Highcharts-7.1.2\code\css\highcharts.css" />
     <Content Include="libs\Highcharts-7.1.2\code\css\stocktools\gui.css" />
@@ -1744,6 +1746,11 @@
     <Content Include="libs\Highcharts-7.1.2\code\themes\sand-signika.js.map" />
     <Content Include="libs\Highcharts-7.1.2\code\themes\skies.js.map" />
     <Content Include="libs\Highcharts-7.1.2\code\themes\sunset.js.map" />
+    <Content Include="libs\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="libs\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="libs\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="libs\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\hcmtemp - Web Deploy.pubxml" />
     <None Include="Scripts\Common\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.js" />
@@ -1787,7 +1794,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Upload.ashx" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\_Login.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -1806,6 +1813,9 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

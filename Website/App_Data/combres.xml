@@ -16,10 +16,11 @@
                 localChangeMonitorInterval="30"
                 remoteChangeMonitorInterval="60">
     <resourceSet name="siteCss" type="css" debugEnabled="true">
-      <resource path="~/content/bootstrap.css" />
+      <!--<resource path="~/content/bootstrap.min.css" />-->
       <resource path="~/content/Site.css" />
       <resource path="~/content/common/icon.css" />
       <resource path="~/content/common/login.css" />
+      <resource path="~/libs/font-awesome/css/font-awesome.min.css" />
     </resourceSet>
     <resourceSet name="siteJs" type="js">
       <resource path="~/scripts/common/jquery-3.3.1.min.js" />

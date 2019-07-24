@@ -51,7 +51,7 @@
                 }
             }
         });
-        me.bbar = [
+        me.dockedItems = [
             {
                 store: me.store,
                 xtype: 'pagingtoolbar',
@@ -65,9 +65,11 @@
                 refreshText: 'Tải lại',
                 firstText: 'Trang đầu',
                 lastText: 'Trang cuối',
-                afterPageText: '/{0}'
+                afterPageText: '/{0}',
+                dock:'bottom'
             }
         ];
+       
      
         this.callParent();
     }

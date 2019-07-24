@@ -15,43 +15,50 @@
                 region: 'center',
                 itemId: 'centerPanel',
                 layout: 'fit',
-                tbar: [
-                    {
-                        xtype: 'datefield',
-                        itemId: 'txtFromDate',
-                        fieldLabel: 'Từ ngày',
-                        value: new Date("3/1/2018"),
-                        labelWidth: 60,
-                        allowBlank: false,
-                        width: 200,
-                        listeners: {
-                            change: function (field, chooseDate, oldValue, eOpts) {
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    shadow: true,
+                 
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'datefield',
+                            itemId: 'txtFromDate',
+                            fieldLabel: 'Từ ngày',
+                            value: new Date("3/1/2018"),
+                            labelWidth: 60,
+                            allowBlank: false,
+                            width: 200,
+                            listeners: {
+                                change: function (field, chooseDate, oldValue, eOpts) {
 
+                                }
                             }
-                        }
-                    },
-                    {
-                        xtype: 'datefield',
-                        itemId: 'txtToDate',
-                        value: new Date(),
-                        fieldLabel: 'Đến ngày',
-                        labelWidth: 60,
-                        name: 'dtChooseDate',
-                        allowBlank: false,
-                        width: 200,
-                        listeners: {
-                            change: function (field, chooseDate, oldValue, eOpts) {
+                        },
+                        {
+                            xtype: 'datefield',
+                            itemId: 'txtToDate',
+                            value: new Date(),
+                            fieldLabel: 'Đến ngày',
+                            labelWidth: 60,
+                            name: 'dtChooseDate',
+                            allowBlank: false,
+                            width: 200,
+                            listeners: {
+                                change: function (field, chooseDate, oldValue, eOpts) {
+                                }
                             }
+                        },
+                        '->',
+                        {
+                            xtype: 'button',
+                            itemId: 'btnSearch',
+                            text: 'Xem',
+                            iconCls: 'btn-search-small'
                         }
-                    },
-                    '->',
-                    {
-                        xtype: 'button',
-                        itemId: 'btnSearch',
-                        text: 'Xem',
-                        iconCls: 'btn-search-small'
-                    }
-                ],
+                    ]
+                }],
+    
                 items: [
                     {
 

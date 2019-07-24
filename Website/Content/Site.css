@@ -17,11 +17,11 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 /* Custom Scroll for Chrome Only - Let's get this party started */
 ::-webkit-scrollbar {
     width: 8px;
@@ -50,8 +50,7 @@ textarea {
 /*NAVIGATION BAR*/
 
 .common-navigation .x-panel-body-default {
-    background-color: #2fb738;
-    border-bottom: 2px solid red
+    background-color: #007409;
 }
 .app-logo {
     width: 700px !important;
@@ -69,7 +68,18 @@ textarea {
         border-color: none !important;
         background-color: none !important;
     }
-    .common-navigation-button.btn-account {
+    .app-logo.x-btn-default-small {
+        -webkit-border-radius: unset;
+        -moz-border-radius: unset;
+        -ms-border-radius: unset;
+        -o-border-radius: unset;
+        border-radius: unset;
+        padding: 3px 3px 3px 3px;
+        border-width: unset;
+        border-style: unset;
+        background-color: #3892d4;
+    }
+        .common-navigation-button.btn-account {
         width: 140px !important;
         float: right
     }
@@ -84,7 +94,11 @@ common-navigation-button.x-btn-default-small {
     border-style: solid;
     background-color: transparent;
 }
-
+.x-btn-icon-el.x-btn-icon-el-default-medium.fa-2x {
+    font-size: 20px;
+    line-height: 20px;
+    color: white;
+}
 .common-navigation-button.x-btn-over.x-btn-default-small {
     background-color: #0077a9;
 }
@@ -190,3 +204,12 @@ common-navigation-button.x-btn-default-small {
     box-shadow: none;
 }
 /*NAVIGATION BAR*/
+
+
+/*CUSTOM TOOLBAR*/
+.x-toolbar-default {
+    box-shadow: 3px 3px 6px rgba(0,0,0,.16), 3px 3px 6px rgba(0,0,0,.23);
+    background-color: whitesmoke
+}
+
+/*CUSTOM TOOLBAR*/
