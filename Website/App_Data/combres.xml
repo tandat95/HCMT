@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  This file contains basic settings needed for most web apps.
+  For full Combres settings (with explanation), refer to the sample definition file: combres_full_with_annotation.xml
+  Also, refer to Combres' documentation: http://combres.codeplex.com/documentation	
+-->
+<combres xmlns='urn:combres'>
+  <filters>
+    <filter type="Combres.Filters.FixUrlsInCssFilter, Combres" />
+  </filters>
+  <resourceSets url="~/combres.axd"
+                defaultDuration="30"
+                defaultVersion="auto"
+                defaultDebugEnabled="true"
+                defaultIgnorePipelineWhenDebug="true"
+                localChangeMonitorInterval="30"
+                remoteChangeMonitorInterval="60">
+    <resourceSet name="siteCss" type="css" debugEnabled="true">
+      <resource path="~/content/bootstrap.css" />
+      <resource path="~/content/Site.css" />
+      <resource path="~/content/common/icon.css" />
+      <resource path="~/content/common/login.css" />
+    </resourceSet>
+    <resourceSet name="siteJs" type="js">
+      <resource path="~/scripts/common/jquery-3.3.1.min.js" />
+      <resource path="~/scripts/navigation/view/Navigation.js" />
+      <resource path="~/scripts/QueryComponent.js" />
+    </resourceSet>
+
+    <resourceSet name="extjs6_CSS" type="css"  debugEnabled="true">
+      <resource path="~/libs/extjs/6.2.0/theme/theme-crisp/resources/theme-crisp-all.css" />
+    </resourceSet>
+    <resourceSet name="extjs6_JS" type="js">
+      <resource path="~/libs/extjs/6.2.0/ext-all.js" />
+      <resource path="~/libs/extjs/6.2.0/theme/theme-crisp/theme-crisp.js" />
+    </resourceSet>
+
+    <resourceSet name="TEMPMap_Style" type="css" debugEnabled="true">
+      <resource path="~/content/bootstrap.min.css" />
+      <resource path="~/libs/maptalk/css/maptalks.css" />
+      <resource path="~/content/map/map.css" />
+    </resourceSet>
+
+    <resourceSet name="TEMPMap_Script" type="js" debugEnabled="true">
+      <resource path="~/libs/maptalk/js/maptalks.js" />
+      <resource path="~/libs/maptalk/js/maptalks.kriginglayer.js" />
+      <resource path="~/scripts/global.js" />
+      <resource path="~/scripts/map/view/MapPanel.js" />
+      <resource path="~/scripts/map/controller/MapPanel.js" />
+    </resourceSet>
+
+    <resourceSet name="Ajaxpro" type="js">
+      <resource path="~/ajaxpro/prototype.ashx" mode="dynamic"/>
+      <resource path="~/ajaxpro/core.ashx" mode="dynamic"/>
+      <resource path="~/ajaxpro/converter.ashx" mode="dynamic"/>
+    </resourceSet>
+
+    <!--TEMP HOM-->
+    <resourceSet name="TEMPHome_Ajax" type="js">
+      <resource path="~/ajaxpro/HCMT.Library.Ajax.TempAjax,HCMT.Library.ashx" mode ="dynamic"/>
+    </resourceSet>
+
+    <resourceSet name="TEMPHome_Style" type="css" debugEnabled="true">
+      <resource reference="TEMPMap_Style" />
+    </resourceSet>
+
+    <resourceSet name="TEMPHome_Script" type="js" debugEnabled="true">
+      <resource reference="TEMPMap_Script" />
+      
+      <resource path="~/libs/Highcharts-7.1.2/code/highcharts.js" />
+      <resource path="~/libs/Highcharts-7.1.2/code/modules/exporting.js" />
+      <resource path="~/libs/Highcharts-7.1.2/code/modules/export-data.js" />
+      
+      <resource path="~/scripts/home/view/TempList.js" />
+      <resource path="~/scripts/home/controller/TempList.js" />
+      <resource path="~/scripts/home/view/Viewport.js" />
+      <resource path="~/scripts/home/controller/Viewport.js" />
+      <resource path="~/scripts/home/home.js" />
+    </resourceSet>
+    <!--TEMP HOM-->
+
+    <!--HCMT ADMIN -->
+    <resourceSet name="HCMTAdmin_Ajax" type="js">
+      <resource path="~/ajaxpro/HCMT.Library.Ajax.TempAjax,HCMT.Library.ashx" mode ="dynamic"/>
+    </resourceSet>
+
+    <resourceSet name="HCMTAdmin_Style" type="css" debugEnabled="true">
+    </resourceSet>
+
+    <resourceSet name="HCMTAdmin_Script" type="js" debugEnabled="true">
+      
+      <resource path="~/scripts/admin/view/ImportHistory.js" />
+      <resource path="~/scripts/admin/controller/ImportHistory.js" />
+      <resource path="~/scripts/admin/view/HistoryReview.js" />
+      <resource path="~/scripts/admin/view/Viewport.js" />
+      <resource path="~/scripts/admin/admin.js" />
+    </resourceSet>
+    <!--HCMT ADMIN -->
+  </resourceSets>
+</combres>

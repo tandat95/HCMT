@@ -1,0 +1,26 @@
+﻿@using Combres.Mvc;
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section ajaxpro{
+    @Url.CombresLink("TEMPHome_Ajax")
+}
+
+@section Styles{
+    @Url.CombresLink("TEMPHome_Style")
+
+}
+
+@if (ViewBag._GetInitData != null)
+{
+    <script type="text/javascript">
+                @Html.Raw(ViewBag._GetInitData)
+    </script>
+}
+@section Scripts{
+    @Url.CombresLink("TEMPHome_Script")
+}
+
