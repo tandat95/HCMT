@@ -221,10 +221,6 @@
     </Content>
     <Content Include="App_Data\combres_full_with_annotation.xml" />
     <Content Include="App_Data\combres_minimal.xml" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Common\icon.css" />
     <Content Include="Content\Common\login.css" />
     <Content Include="Content\Home\home.css" />
@@ -246,6 +242,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-grid.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-grid.min.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-reboot.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-reboot.min.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap.css" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap.min.css" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.bundle.js" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.bundle.min.js" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.js" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.min.js" />
     <Content Include="libs\extjs\6.2.0\ext-all.js" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\resources\ext\ext-watermark\demo-files\demo.css" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\resources\ext\ext-watermark\demo-files\demo.js" />
@@ -1651,8 +1657,6 @@
     <Content Include="Scripts\Admin\view\Viewport.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.min.map" />
     <Content Include="Scripts\Common\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\Common\bootstrap.js" />
-    <Content Include="Scripts\Common\bootstrap.min.js" />
     <Content Include="combres.readme" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\config.rb" />
     <Content Include="libs\extjs\6.2.0\theme\theme-crisp\resources\ext\ext-watermark\fonts\ext-watermark.eot" />
@@ -1751,8 +1755,18 @@
     <Content Include="libs\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="libs\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="libs\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="libs\bootstrap-4.1.3\css\.DS_Store" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-grid.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-grid.min.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-reboot.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap-reboot.min.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\css\bootstrap.min.css.map" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.bundle.js.map" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.bundle.min.js.map" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.js.map" />
+    <Content Include="libs\bootstrap-4.1.3\js\bootstrap.min.js.map" />
     <None Include="Properties\PublishProfiles\hcmtemp - Web Deploy.pubxml" />
-    <None Include="Scripts\Common\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.min.js" />
     <Content Include="Scripts\Common\jquery-3.3.1.slim.js" />
@@ -1762,10 +1776,7 @@
     <Content Include="Scripts\Common\jquery.validate.min.js" />
     <Content Include="Scripts\Common\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Common\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Common\kriging.js" />
     <Content Include="Scripts\Common\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Common\ol.js" />
-    <Content Include="Scripts\Common\pace.min.js" />
     <Content Include="Scripts\Common\rainbowvis-2015-05-24.min.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\Home\controller\TempList.js" />
@@ -1794,13 +1805,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Upload.ashx" />
-    <Content Include="Views\Account\_Login.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login_.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
@@ -1823,10 +1832,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

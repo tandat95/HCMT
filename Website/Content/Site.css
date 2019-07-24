@@ -80,7 +80,7 @@ textarea {
         background-color: #3892d4;
     }
         .common-navigation-button.btn-account {
-        width: 140px !important;
+        width: auto !important;
         float: right
     }
 common-navigation-button.x-btn-default-small {

@@ -20,7 +20,7 @@
                 @Html.Raw(ViewBag._GetInitData)
     </script>
 }*@
-
+    <span id="CurrentUser" style="visibility:hidden">@HttpContext.Current.User.Identity.Name</span>
 @section Scripts{
     @Url.CombresLink("HCMTAdmin_Script")
 }

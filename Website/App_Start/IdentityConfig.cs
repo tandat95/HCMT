@@ -41,7 +41,7 @@ namespace HCMT
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>());
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>("mongodb://tdat:Tandat131754@cluster0-shard-00-00-ouaxz.mongodb.net:27017,cluster0-shard-00-01-ouaxz.mongodb.net:27017,cluster0-shard-00-02-ouaxz.mongodb.net:27017/HCMT?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
