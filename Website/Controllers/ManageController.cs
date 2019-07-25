@@ -55,19 +55,19 @@ namespace HCMT.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Mật khẩu của bạn đã được đổi thành công."
+                : message == ManageMessageId.SetPasswordSuccess ? "Mật khẩu của bạn đã được đặt thành công."
+                : message == ManageMessageId.SetTwoFactorSuccess ? "Xác thực hai yếu tố đã được bật."
+                : message == ManageMessageId.Error ? "Có lỗi xảy ra."
+                : message == ManageMessageId.AddPhoneSuccess ? "Số điện thoại của bạn đã được thêm thành công."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Số điện thoại đã được gỡ bỏ."
                 : "";
 
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
+                //PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
